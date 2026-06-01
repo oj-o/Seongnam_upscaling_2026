@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Terrain - Digital Art Film Production</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #generation-overlay {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 255, 126, 0.2);
+            color: #32FF7E;
+            padding: 15px 40px;
+            border: 1px solid #32FF7E;
+            border-radius: 10px;
+            z-index: 1000;
+            font-family: 'Apple SD Gothic Neo', sans-serif;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        .stop-btn {
+            background: #32FF7E;
+            color: #000;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        .stop-btn:hover {
+            background: #28e06a;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div id="start-screen" class="overlay">
+            <h1 class="title-main">Mind Terrain Film</h1>
+            <p class="subtitle">시네마틱 디지털 아트 필름 제작</p>
+            <div class="button-group">
+                <button id="demo-btn" style="background: #32FF7E; padding: 20px 60px; font-size: 1.5rem; color: black; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 20px;">디지털 아트 필름 생성 시작</button>
+            </div>
+            <div class="caption-info">
+                <p><strong>Mind Terrain Film Production</strong></p>
+                <p>본 모드는 5분 분량의 시네마틱 영상을 자동 생성하여 녹화합니다.<br>자막과 은은한 배경음이 영상에 포함되어 함께 저장됩니다.</p>
+                <p style="margin-top: 20px;"><a href="index.html" style="color: #32FF7E; text-decoration: none; border: 1px solid #32FF7E; padding: 5px 15px; border-radius: 5px;">[게임 모드로 돌아가기]</a></p>
+            </div>
+        </div>
+
+        <div id="generation-overlay" style="display: none;">
+            <div style="font-weight: 800; font-size: 1.2rem; margin-bottom: 5px;">시네마틱 영상 생성 중...</div>
+            <div id="gen-timer" style="font-size: 0.9rem; opacity: 0.8;">진행 시간: 00:00 / 05:00</div>
+            <button id="stop-save-btn" class="stop-btn">녹화 중지 및 저장</button>
+        </div>
+
+        <div id="ui-layer" style="display: none;">
+            <div id="message"></div>
+        </div>
+        <div id="end-screen" style="display: none;"></div>
+    </div>
+    <script type="module" src="film.ts"></script>
+</body>
+</html>

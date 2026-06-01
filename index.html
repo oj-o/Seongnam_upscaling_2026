@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Terrain - Digital Art Film</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <video id="webcam" autoplay playsinline muted style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></video>
+        <!-- Canvas only - Subtitles now rendered inside canvas -->
+        <canvas id="gameCanvas"></canvas>
+        <div id="collision-flash"></div>
+        
+        <!-- Start Screen -->
+        <div id="start-screen" class="overlay">
+            <h1 class="title-main">Mind Terrain</h1>
+            <p class="subtitle">내면의 지형을 탐구하는 디지털 아트</p>
+            <div class="button-group">
+                <button id="start-btn">인터랙티브 게임 시작</button>
+                <a href="film.html" id="film-link" class="secondary-btn">디지털 아트 필름 제작</a>
+            </div>
+            <div class="caption-info" style="margin-top: 30px;">
+                <p><strong>Mind Terrain Production</strong></p>
+                <p>게임 모드: 카메라로 캔버스를 인식하여 직접 탐험합니다.<br>필름 모드: 시네마틱 영상을 자동 생성하여 저장합니다.</p>
+            </div>
+        </div>
+
+        <!-- UI Overlay for Game Messages -->
+        <div id="ui-layer" style="display: none;">
+            <div id="hud-bottom">
+                <div id="game-status">STAGE 1: 탐험 시작</div>
+                <div id="message-box"></div>
+                <button id="next-stage-btn" style="display: none; margin-top: 10px; background: rgba(255,255,255,0.2); border: 1px solid #32FF7E; color: #32FF7E; padding: 10px 20px; font-size: 1rem; border-radius: 5px; cursor: pointer;">다음 단계로 진행하기</button>
+            </div>
+            
+            <div id="touch-controls-hint">
+                <div class="control-arrow up">▲</div>
+                <div class="control-arrow left">◀</div>
+                <div class="control-arrow right">▶</div>
+                <div class="control-arrow down">▼</div>
+            </div>
+        </div>
+
+        <!-- Instruction Overlay -->
+        <div id="instruction-overlay" style="display: none;">
+            <div id="instruction-content-bottom">
+                <div id="instruction-text">흰색 계통의 사각형 캔버스를<br>가로로 비춰주세요</div>
+                <div class="loader-ring"><div></div><div></div><div></div><div></div></div>
+                <button id="manual-start-btn" style="display: none; margin-top: 20px; background: rgba(50, 255, 126, 0.2); border: 2px solid #32FF7E; color: #32FF7E; padding: 12px 30px; font-size: 1.1rem; border-radius: 30px; cursor: pointer;">직접 시작하기</button>
+            </div>
+        </div>
+
+        <div id="end-screen" style="display: none;" class="overlay">
+            <div id="credit-content" style="max-width: 800px; padding: 40px; background: rgba(0,0,0,0.9); border-radius: 20px; border: 1px solid #32FF7E;">
+                <h2 style="color: #32FF7E; margin-bottom: 20px;">Mind Terrain</h2>
+                <div id="caption-text" style="font-size: 1.1rem; line-height: 1.8; color: #eee; text-align: justify; margin-bottom: 30px; word-break: keep-all;">
+                    소외된 마음에 접촉해 가는 과정을 AR 기반 경험으로 구성한 작업<br><br>
+                    일상 속에서 인식되지 않거나 소외되어 온 개인의 내면에 주목하며, 그 마음에 접촉해 가는 과정을 표현하고자 하였다. 우리는 다양한 자극을 받는 환경 속에서 살아가지만, 정작 자신의 감각과 상태를 충분히 인식하지 못한 채 지나가는 경우가 많다. AR 기반의 인터랙션을 통해 관람자는 자신의 감각과 상태를 마주하게 되며, 이를 통해 스스로의 마음에 접촉해 보는 경험을 제안한다.
+                </div>
+                <div class="button-group">
+                    <button onclick="location.reload()" style="background: #32FF7E; color: #000;">다시 시작하기</button>
+                    <button onclick="window.close();" class="secondary-btn">종료하기</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Portrait Warning Overlay -->
+        <div id="portrait-warning" style="display: none;">
+            <div style="text-align: center; color: white; padding: 20px;">
+                <div style="font-size: 4rem; margin-bottom: 20px;">🔄</div>
+                <p style="font-size: 1.5rem;">기기를 <strong>가로</strong>로 회전해주세요.</p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="index.ts"></script>
+</body>
+</html>
