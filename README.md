@@ -28,19 +28,38 @@
 
 ## 🚀 시작하기 (Getting Started)
 
-### 사전 준비
-- [Node.js](https://nodejs.org/) 설치
+### 1. 사전 준비 (Prerequisites)
+- **Node.js:** 안정적인 최신 LTS 버전(v18 이상 권장)이 설치되어 있어야 합니다.
+- **브라우저:** AR 기능(WebXR)을 지원하는 최신 브라우저(Chrome, Safari 등)가 필요하며, 모바일 기기에서의 테스트를 권장합니다.
 
-### 설치 및 실행
+### 2. 저장소 복제 (Clone)
 ```bash
-# 의존성 설치
+git clone https://github.com/oj-o/Seongnam_upscaling_2026.git
+cd Seongnam_upscaling_2026
+```
+
+### 3. 의존성 설치 (Installation)
+프로젝트에 필요한 패키지들을 설치합니다.
+```bash
 npm install
+```
 
-# 로컬 개발 서버 실행
+### 4. 로컬 개발 서버 실행 (Development)
+실시간으로 코드 변경 사항을 확인하며 개발할 수 있는 로컬 서버를 실행합니다.
+```bash
 npm run dev
+```
+- 실행 후 터미널에 표시되는 로컬 주소(보통 `http://localhost:5173`)로 접속합니다.
+- **모바일 테스트:** 개발 PC와 모바일 기기가 같은 네트워크(Wi-Fi)에 있다면, `--host` 옵션을 사용하여 모바일 기기에서도 접속할 수 있습니다. (`npx vite --host`)
 
-# 빌드
+### 5. 빌드 및 배포 (Build & Preview)
+프로덕션 환경을 위해 프로젝트를 빌드합니다.
+```bash
+# 빌드 실행 (dist 폴더 생성)
 npm run build
+
+# 빌드된 결과물 미리보기
+npm run preview
 ```
 
 ---
