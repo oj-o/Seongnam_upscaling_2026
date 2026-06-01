@@ -21,15 +21,13 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: Seongnam_upscaling_2026/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm install
-        working-directory: Seongnam_upscaling_2026
 
       - name: Build
         run: npm run build
-        working-directory: Seongnam_upscaling_2026
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -37,7 +35,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: Seongnam_upscaling_2026/dist
+          path: dist
 
   deploy:
     environment:
