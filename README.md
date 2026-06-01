@@ -62,5 +62,26 @@ npm run build
 npm run preview
 ```
 
+## 🌐 웹 배포 및 실행 (Web Publishing)
+
+빌드된 결과물(`dist` 폴더)을 웹 서버에 업로드하여 누구나 접속할 수 있는 URL로 공유할 수 있습니다.
+
+### 1. GitHub Pages를 이용한 배포
+이 저장소를 통해 직접 웹 페이지를 호스팅할 수 있습니다.
+- 저장소의 **Settings > Pages** 메뉴로 이동합니다.
+- **Build and deployment > Source**에서 `GitHub Actions`를 선택하거나, `gh-pages` 브랜치를 설정하여 배포할 수 있습니다.
+- (Vite 사용 시 `base` 설정이 필요할 수 있습니다. `vite.config.ts` 참고)
+
+### 2. Vercel 또는 Netlify 이용 (추천)
+가장 빠르고 간편한 배포 방법입니다.
+- [Vercel](https://vercel.com/) 또는 [Netlify](https://www.netlify.com/)에 가입 후 이 GitHub 저장소를 연결합니다.
+- 빌드 명령어: `npm run build`
+- 출력 디렉토리: `dist`
+- 설정이 완료되면 자동으로 고유한 `.vercel.app` 또는 `.netlify.app` 주소가 생성됩니다.
+
+### 3. 모바일 기기에서의 실행
+AR 경험을 위해 생성된 웹 주소를 모바일 브라우저(Chrome/Safari)로 접속하세요.
+- **HTTPS 보안 연결 필수:** AR 기능(WebXR)은 보안 정책상 `https://` 환경에서만 동작합니다. (localhost 제외)
+
 ---
 © 2026 Seongnam Upscaling Project.
